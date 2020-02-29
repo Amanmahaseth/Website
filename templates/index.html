@@ -50,19 +50,26 @@
 
       		<li class="nav-item active">
         		<a class="nav-link pl-5" href="">Health Tips</a>
-      		</li>
-      		<div>
-      			<li class="nav-item active">
-        			<a class="btn nav-link pl-5" href="http://127.0.0.1:8000/accounts/login">Login</a>
-        	</div>
-        			 
-				
-
-		      			</li>
-		      		<div>
-		      		  <li class="nav-item active">
-		      			<a class=" btn nav-link pl-5"href="http://127.0.0.1:8000/accounts/signup">Sign Up</a></div>
-
+			  </li>
+			{% if user.is_authenticated %}
+			<div>
+				<li class="nav-item active">
+				  <a class="btn nav-link pl-5" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+		  </div>
+		  	<form id="logout" method="POST" action="{% url 'logout' %}">
+				{% csrf_token %}
+				<input type="hidden"/>
+			  </form> 
+			{% else %}
+			<div>
+				<li class="nav-item active">
+				  <a class="btn nav-link pl-5" href="{% url 'login' %}">Login</a>
+		  </div>
+						</li>
+					<div>
+					  <li class="nav-item active">
+						<a class=" btn nav-link pl-5"href="{% url 'signup' %}">Sign Up</a></div>
+			{% endif %}
 							<!-- Modal -->
 							<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							  <div class="modal-dialog" role="document">
@@ -168,7 +175,4 @@
 
 </body>
 </html>
-<<<<<<< HEAD
-
-=======
->>>>>>> 5517c7ec4ce7ccd291c84a9a2330fae103817b83
+ 
