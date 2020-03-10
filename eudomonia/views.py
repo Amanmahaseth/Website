@@ -6,5 +6,5 @@ def index(request):
 
 def communicable(request):
     return render(request, 'communicable.html')
-def non(request):
-    return render(request, 'non.html')    
+def noncommunicable(request):
+    return render(request, 'noncommunicable.html')    
