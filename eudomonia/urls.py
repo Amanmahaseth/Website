@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.index),
     path('admin/', admin.site.urls),
     path('communicable/', views.communicable),
+    path('non/', views.non),
     path('accounts/', include('accounts.urls')),
-    path('noncommunicable/',views.noncommunicable),
+    
 ]
